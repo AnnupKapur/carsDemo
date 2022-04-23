@@ -1,0 +1,149 @@
+:root{
+	--nav-height: 60px;
+}
+
+body{
+	padding:0;
+	margin:0;
+	display: flex;
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+	flex-direction: column;
+}
+
+.navbar{
+	height: var(--nav-height);
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	box-shadow: 0 10px 15px -13px black;
+	z-index: 10;
+	background-color: hsla(0, 0%, 80%, 0.8);
+	position: sticky;
+	top:0;
+	width: 100vw;
+}
+
+.navbar img{
+	max-width: 70px;
+	padding-left: 50px;
+}
+
+.navbar ul{
+	display: flex;
+	flex-direction: row;
+	list-style-type: none;
+	margin: 0;
+	padding: 0 40px 0 0;
+	height: var(--nav-height);
+	font-size: 18px;
+}
+
+.navbar li{
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 0 40px;
+	height: var(--nav-height);
+	transition: 600ms ease-in-out;
+}
+
+.navbar li:hover{
+	background-color: rgba(13, 121, 44, 0.6);
+	box-shadow: 0 12px 10px -7px rgba(13, 121, 44, 1);
+	transition: 300ms ease-in-out;
+}
+
+.hero{
+	display:flex;
+	flex-direction: row;
+	justify-content: center;
+	gap: 80px;
+	align-items: flex-end;
+	/*min-height: calc(100vh / 1.2);*/
+	min-height: 100vh;
+	background-image: url('https://images.unsplash.com/photo-1476067897447-d0c5df27b5df?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80') ,linear-gradient(hsla(0,0%,0%,0), hsla(0,0%,0%,1));
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+	background-size:cover;
+	background-blend-mode: darken;
+	margin-top: calc(var(--nav-height)*-1);
+}
+
+.hero::after{
+	content:'SOME COOL CARS';
+	display: block;
+	position: absolute;
+	top: 200px;
+	font-size: 90px;
+	font-weight: 900;
+	padding: 5px 20px;
+	background-color: rgb(220, 220, 220);
+	color:black;
+	/* background-image: linear-gradient(60deg, hsla(360,50%,20%, 1),hsla(360, 50%, 50%, 1)); */
+	mix-blend-mode: screen;
+	text-decoration: underline;
+	text-decoration-color: hsla(0,0%,100%, 0.3);
+	text-decoration-thickness: 10px;
+	text-underline-offset: 30px;
+	box-shadow: 0 10px 20px -10px green;
+}
+
+.card{
+	margin: 0 0 10px 0;
+	display: flex;
+	flex-direction: column;
+	border-radius: 5px 5px 0 0;
+	opacity: 0.4;
+	transition: transform 700ms ease-in-out, opacity 400ms ease-in-out;
+}
+
+.card img{
+	border-radius: 5px 5px 0 0;
+	height: 150px;
+	width: 305px;
+	object-fit: cover;
+	transform: perspective(1000px) translateY(40px) translateZ(70px);
+	transition: transform 500ms ease-in-out;
+}
+
+.card__content{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 0px 10px 30px 10px;
+	transform: perspective(1000px) rotateX(270deg) translateY(30px) translateZ(-35px) ;
+	background-color: whitesmoke;
+	transition: transform 500ms ease-in-out;
+	min-height: 150px;
+}
+
+.card__content h3{
+	font-size: 20px;
+}
+
+.card__content p{
+	margin: 0;
+	padding: 0;
+}
+
+.card:hover{
+	opacity: 1;
+	transform: translateY(-100px);
+	transition: transform 500ms ease-in-out, opacity 500ms ease-in-out;
+}
+
+.card:hover img{
+	transform: perspective(1000px) rotateX(90deg) translateY(-60px) translateZ(-90px);
+	transition: transform 500ms ease-in-out;
+}
+
+/* .card:hover img{
+	transform: perspective(1000px);
+} */
+
+.card:hover .card__content{
+	transition: transform 500ms ease-in-out;
+	transform: perspective(1000px) rotateX(360deg) translateY(20px) translateZ(0px);
+}
